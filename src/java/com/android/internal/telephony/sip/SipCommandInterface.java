@@ -576,4 +576,7 @@ class SipCommandInterface extends BaseCommands implements CommandsInterface {
     }
 
     public boolean needsOldRilFeature(String feature) { return false; }
+
+    public void setSubscriptionMode(int subscriptionMode, Message response) {
+    }
 }

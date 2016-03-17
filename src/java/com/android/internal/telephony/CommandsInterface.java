@@ -140,6 +140,13 @@ public interface CommandsInterface {
     void unregisterForImsNetworkStateChanged(Handler h);
 
     /**
+     * Indications for tethered mode calls. ON/OFF indications should trigger
+     * immediate data call retries.
+     */
+    void registerForTetheredModeStateChanged(Handler h, int what, Object obj);
+    void unregisterForTetheredModeStateChanged(Handler h);
+
+    /**
      * Fires on any transition into RadioState.isOn()
      * Fires immediately if currently in that state
      * In general, actions should be idempotent. State may change
@@ -1809,6 +1816,16 @@ public interface CommandsInterface {
      *          Callback message contains the information of SUCCESS/FAILURE.
      */
     public void setDataSubscription (Message result);
+
+    /**
+     * Sets SingleStandByMode or DualStandBy mode at Modem.
+     * @param subscriptionMode
+                1 for SingleStandBy (Single SIM functionality)
+                2 for DualStandBy (Dual SIM functionality)
+     * @param result
+     *          Callback message contains the information of SUCCESS/FAILURE.
+    */
+    public void setSubscriptionMode (int subscriptionMode, Message result);
 
     /**
      * Request to enable or disable the tune away state.

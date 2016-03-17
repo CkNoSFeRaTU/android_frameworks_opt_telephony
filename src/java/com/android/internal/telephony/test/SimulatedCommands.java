@@ -1717,4 +1717,7 @@ public final class SimulatedCommands extends BaseCommands
     }
 
     public boolean needsOldRilFeature(String feature) { return false; }
+
+    public void setSubscriptionMode(int subscriptionMode, Message response) {
+    }
 }
